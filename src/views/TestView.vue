@@ -2,6 +2,8 @@
 import Test from '@/components/Test.vue';
 import { defineAsyncComponent, inject, onMounted, provide, ref } from 'vue';
 import useCustomers from '@/composable/useCustomers';
+import Watcher from '@/components/Watcher.vue';
+import Event from '@/components/Event.vue';
 
 const name = ref('test')
 
@@ -42,6 +44,15 @@ const filter = (gender)=>{
   ourCustomers.customers.value = ourCustomers.gender_filter(gender);
 }
 
+const handleEvent = ({name,value})=>{
+  console.log(name,value);
+}
+
+const handleSecret =({data})=>{
+  console.log(data);
+
+}
+
 </script>
 
 <template>
@@ -63,6 +74,12 @@ const filter = (gender)=>{
       <button class="px-2 py-1 rounded-xl bg-red-600"  @click="filter('Female')">female</button>
       <button class="px-2 py-1 rounded-xl bg-red-600"  @click="filter()">All</button>
     </ul>
+
+    <hr>
+    <Watcher/>
+
+    <hr>
+    <Event @test="handleEvent" @secretEvent="handleSecret"/>
 
 
   </div>
