@@ -4,6 +4,8 @@ import { defineAsyncComponent, inject, onMounted, provide, ref } from 'vue';
 import useCustomers from '@/composable/useCustomers';
 import Watcher from '@/components/Watcher.vue';
 import Event from '@/components/Event.vue';
+import FetchData from '@/components/FetchData.vue';
+import AxiosFetch from '@/components/AxiosFetch.vue';
 
 const name = ref('test')
 
@@ -23,6 +25,7 @@ const customers = ref([
 ]);
 
 const users = inject('users');
+
 
 const status = ref(false);
 
@@ -56,9 +59,12 @@ const handleSecret =({data})=>{
 </script>
 
 <template>
+
   <div>
+
     <Test  :name="name" :users="users" />
     <button ref="templateRef" @click="changeName"> tempalate Ref</button>
+
     <hr>
 
     <div v-if="status">
@@ -81,6 +87,11 @@ const handleSecret =({data})=>{
     <hr>
     <Event @test="handleEvent" @secretEvent="handleSecret"/>
 
+    <hr>
+    <FetchData/>
+
+    <hr>
+    <AxiosFetch/>
 
   </div>
 </template>

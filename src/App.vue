@@ -28,6 +28,8 @@ provide('users', users);
         <RouterLink to="/">Home</RouterLink> ||
         <RouterLink to="/about">About</RouterLink> ||
         <RouterLink to="/test">Test</RouterLink> ||
+        <RouterLink to="/todo">Todo List</RouterLink> ||
+        <RouterLink to="/ramdomQuote">Ramdom Quote</RouterLink> ||
       </nav>
 
     </div>
